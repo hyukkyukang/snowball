@@ -16,7 +16,7 @@ import re
 from mo_future import string_types, text, first, long, is_text
 import random
 
-from sql_formatter.keywords import RESERVED, reserved_keywords, join_keywords, precedence, binary_ops
+from preprocess.sql_formatter.keywords import RESERVED, reserved_keywords, join_keywords, precedence, binary_ops
 
 VALID = re.compile(r'^[a-zA-Z_]\w*$')
 
@@ -523,3 +523,6 @@ def translate_sql(sql):
     translated_sql = ' '.join(translated_struct_sql.replace('(','').replace(')','').split())
     return translated_sql, translated_struct_sql
 
+
+if __name__ == "__main__":
+    print(translate_sql("SELECT Fname FROM FACULTY WHERE Rank  =  \"Professor\" ORDER BY Fname")[1])

@@ -30,8 +30,9 @@ CUDA_VISIBLE_DEVICES=1 python -m run_snowball \
    --gen_save_epochs 5 \
    --gen_eval_epochs 1 \
    --gen_logging_steps 25 \
-   --gen_per_device_train_batch_size 48 \
-   --gen_per_device_eval_batch_size 48 \
+   --gen_per_device_train_batch_size 6 \
+   --gen_per_device_eval_batch_size 6 \
+   --gen_gradient_accumulation_steps 8 \
    --gen_evaluate_during_training \
    --gen_seed 42 \
    --eval_learning_rate 5e-6 \
@@ -39,8 +40,9 @@ CUDA_VISIBLE_DEVICES=1 python -m run_snowball \
    --eval_save_epochs 5 \
    --eval_eval_epochs 1 \
    --eval_logging_steps 25 \
-   --eval_per_device_train_batch_size 16 \
-   --eval_per_device_eval_batch_size 16 \
+   --eval_per_device_train_batch_size 2 \
+   --eval_per_device_eval_batch_size 2 \
+   --eval_gradient_accumulation_steps 8 \
    --eval_evaluate_during_training \
    --eval_seed 42 \
    --overwrite_output_dir
