@@ -229,3 +229,18 @@ Running:
 - the algorithm is based on rules which will take less than half minute to run all the tests!
 - for the cleaner and independent version of BLEC, please visit [here](https://github.com/chatc/BLEC)
 
+
+# Updated README
+
+## Setup
+---
+```bash
+docker compose up -d
+```
+
+## Running inference on new SQL string input
+---
+Run the following command:
+```bash
+python infer_snowball.py --sql [SQL_STRING_TO_TRANSLATE]
+```
