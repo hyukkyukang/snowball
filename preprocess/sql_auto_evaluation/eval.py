@@ -2,14 +2,14 @@ import json
 import re
 from nltk.metrics import accuracy
 import os
-from .utils import *
+from preprocess.sql_auto_evaluation.utils import *
 
 eval_type = 'dev'
 
-orginal_data_path = "~/snowball/data/spider/raw/"
-mapping_path = "~/snowball/data/spider/preprocessed/{}.json".format(eval_type)
-raw_test_path = "~/snowball/data/spider/raw/{}.json".format(eval_type)
-result_json_path = '~/snowball/acl_eval_evaluations_multi_dataset.json'.format(eval_type)
+orginal_data_path = "/home/snowball/data/spider/raw/"
+mapping_path = "/home/snowball/data/spider/preprocessed/{}.json".format(eval_type)
+raw_test_path = "/home/snowball/data/spider/raw/{}.json".format(eval_type)
+result_json_path = '/home/snowball/acl_eval_evaluations_multi_dataset.json'.format(eval_type)
 
 def data_to_components(data_path):
     test_data = json.load(open(os.path.join(data_path, "{}.json".format(eval_type))))

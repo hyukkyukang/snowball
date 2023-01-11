@@ -25,11 +25,10 @@
             "--tokenizer_name", "facebook/bart-large",
             "--config_name", "facebook/bart-large",
             "--translated_logic",
-            "--gen_do_test",
-            "--gen_do_eval",
-            "--gen_do_eval",
-            "--eval_do_test",
-            "--eval_do_eval",
+            // "--gen_do_test",
+            // "--gen_do_eval",
+            // "--eval_do_test",
+            // "--eval_do_eval",
             "--gen_do_out_domain_test",
             "--snow_ball_mode", "scratch",
             "--pretrain_dir", "save_debug/spider_snow_ball_large",
@@ -60,12 +59,13 @@
             "--overwrite_output_dir"]
         },
         {
-            "name": "eval.py",
+            "name": "BLEC eval.py",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/preprocess/sql_auto_evaluation/eval.py",
             "console": "integratedTerminal",
             "justMyCode": true,
+            "env": {"PYTHONPATH": "${workspaceFolder}"}
         },
         {
             "name": "BLEC_demo_test.py",
@@ -74,6 +74,7 @@
             "program": "${workspaceFolder}/BLEC/demo_test.py",
             "console": "integratedTerminal",
             "justMyCode": true,
+            "env": {"PYTHONPATH": "${workspaceFolder}/BLEC"}
         }
     ]
 }
