@@ -67,7 +67,7 @@ class RelogicModel(nn.Module):
             pad_token_id=label_padding_id
             )
             if "labels" not in kwargs:
-                return generated_ids
+                return None, generated_ids[0]
             output_ids = kwargs.pop('labels')
             y_ids = output_ids[:, :-1].contiguous()
             lm_labels = output_ids[:, 1:].clone()

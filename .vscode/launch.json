@@ -11,7 +11,11 @@
             "program": "${workspaceFolder}/infer_snowball.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "env": {"CUDA_VISIBLE_DEVICES": "3"}
+            "env": {"CUDA_VISIBLE_DEVICES": "3"},
+            "args": [
+                "--sql",
+                "SELECT m1.id FROM MOVIE m1 JOIN rating r1 ON m1.id = r1.mov_id WHERE rating.stars < (SELECT MAX(r2.stars) FROM movie m2 JOIN rating r2 ON m2.id = r2.mov_id WHERE m2.id = m1.id) AND m1.id IN (SELECT m3.id FROM movie m3 JOIN direction md ON m3.id = md.mov_id JOIN director d ON md.dir_id = d.id WHERE d.first_name = 'Spielberg' AND d.last_name = 'Steven') GROUP BY m1.id HAVING AVG(r1.stars) >= 3"
+            ]
         },
         {
             "name": "run_snowball.py",
